@@ -20,7 +20,7 @@ class Bots:
         Global.logging_level = logging
         Global.fork_name = fork_name
 
-    def create_loop(self, time:int = 60):
+    async def create_loop(self, time:int = 60):
         time = int(time)
 
         if time < 30:
@@ -28,7 +28,7 @@ class Bots:
 
         Global.time = time
         try:
-            self.bot.load_extension(".classes.extension", package="sdc_api_py")
+            await self.bot.load_extension(".classes.extension", package="sdc_api_py")
         except Exception as e:
             print(e)
         else:
